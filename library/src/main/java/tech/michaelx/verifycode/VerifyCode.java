@@ -1,13 +1,17 @@
 package tech.michaelx.verifycode;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Messenger;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;
@@ -27,7 +31,6 @@ import java.lang.ref.SoftReference;
 public class VerifyCode {
     private Context mContext;
     private CodeConfig mCodeConfig;
-    private TextView mCodeView;
     private Intent mAuthcodeIntent;
 
     private Handler mHandler;
@@ -52,9 +55,11 @@ public class VerifyCode {
             switch (msg.what) {
                 case ReadSmsService.OBSERVER_SMS_CODE_MSG:
                     mAuthCode.setText((String) msg.obj);
+                    sInstance = null;
                     break;
                 case ReadSmsService.RECEIVER_SMS_CODE_MSG:
                     mAuthCode.setText((String) msg.obj);
+                    sInstance = null;
                     break;
                 default:
                     break;
@@ -79,15 +84,28 @@ public class VerifyCode {
     }
 
     public VerifyCode cofig(CodeConfig config) {
+        if (mContext == null) {
+            throw new NullPointerException("mContext is null.Please call with(Context) first.");
+        }
         mCodeConfig = config;
         return this;
     }
 
     public void into(TextView codeView) {
-        mCodeView = codeView;
+        if (mCodeConfig == null) {
+            throw new NullPointerException("mCodeConfig is null.Please call cofig(CodeConfig) before this.");
+        }
+        mHandler = new AuthCodeHandler(codeView);
+        if (checkPermission()) {
+            startReadSmsService();
+        } else {
+            Toast.makeText(mContext, "Please allow app to read your sms for auto input auth code.", Toast.LENGTH_SHORT).show();
+        }
+    }
 
-        mHandler = new AuthCodeHandler(mCodeView);
-        startReadSmsService();
+    private boolean checkPermission() {
+        return ActivityCompat.checkSelfPermission(mContext, Manifest.permission.RECEIVE_SMS) == PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.READ_SMS) == PackageManager.PERMISSION_GRANTED;
     }
 
     /**

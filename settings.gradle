@@ -1,1 +1,1 @@
-include ':app', ':verifycode'
+include ':sample', ':library'

@@ -100,7 +100,7 @@ public class ReadSmsService extends Service {
                 mCodeConfig = bundle.getParcelable(EXTRAS_COFIG);
             }
         }
-        return super.onStartCommand(intent, flags, startId);
+        return START_NOT_STICKY;
     }
 
     @Override
@@ -293,7 +293,7 @@ public class ReadSmsService extends Service {
      * @param msgWhat
      * @param msgObj
      */
-    private void sendMsg2Register(int msgWhat, Object msgObj) {
+    private void sendMsg2Register(int msgWhat, String msgObj) {
         if (mMessenger != null) {
             Message msg = Message.obtain();
             msg.what = msgWhat;
@@ -303,6 +303,8 @@ public class ReadSmsService extends Service {
                 mMessenger.send(msg);
             } catch (RemoteException e) {
                 e.printStackTrace();
+            } finally {
+                stopSelf();
             }
         }
     }
