@@ -1,4 +1,4 @@
-package tech.michaelx.smscode;
+package tech.michaelx.readsms;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

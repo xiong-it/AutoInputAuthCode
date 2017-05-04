@@ -1,4 +1,4 @@
-package tech.michaelx.smscode;
+package tech.michaelx.readsms;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

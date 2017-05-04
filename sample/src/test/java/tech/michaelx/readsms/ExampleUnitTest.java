@@ -1,4 +1,4 @@
-package tech.michaelx.smscode;
+package tech.michaelx.readsms;
 
 import org.junit.Test;
 

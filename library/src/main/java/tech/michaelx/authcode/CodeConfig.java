@@ -1,4 +1,4 @@
-package tech.michaelx.verifycode;
+package tech.michaelx.authcode;
 
 import android.os.Parcel;
 import android.os.Parcelable;

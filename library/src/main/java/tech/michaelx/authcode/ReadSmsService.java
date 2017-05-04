@@ -1,4 +1,4 @@
-package tech.michaelx.verifycode;
+package tech.michaelx.authcode;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
