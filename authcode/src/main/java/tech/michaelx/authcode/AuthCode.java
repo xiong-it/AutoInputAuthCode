@@ -28,7 +28,7 @@ import java.lang.ref.SoftReference;
  * Description: 自动填写短信中的验证码.
  */
 
-public class VerifyCode {
+public class AuthCode {
     private Context mContext;
     private CodeConfig mCodeConfig;
     private Intent mAuthcodeIntent;
@@ -67,23 +67,23 @@ public class VerifyCode {
         }
     }
 
-    private static VerifyCode sInstance;
+    private static AuthCode sInstance;
 
-    private VerifyCode() {}
+    private AuthCode() {}
 
-    public static synchronized VerifyCode getInstance() {
+    public static synchronized AuthCode getInstance() {
         if (sInstance == null) {
-            sInstance = new VerifyCode();
+            sInstance = new AuthCode();
         }
         return sInstance;
     }
 
-    public VerifyCode with(Context context) {
+    public AuthCode with(Context context) {
         mContext = context;
         return this;
     }
 
-    public VerifyCode cofig(CodeConfig config) {
+    public AuthCode cofig(CodeConfig config) {
         if (mContext == null) {
             throw new NullPointerException("mContext is null.Please call with(Context) first.");
         }
