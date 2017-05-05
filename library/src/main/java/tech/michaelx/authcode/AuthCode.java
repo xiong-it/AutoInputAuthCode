@@ -83,7 +83,7 @@ public class AuthCode {
         return this;
     }
 
-    public AuthCode cofig(CodeConfig config) {
+    public AuthCode config(CodeConfig config) {
         if (mContext == null) {
             throw new NullPointerException("mContext is null.Please call with(Context) first.");
         }
