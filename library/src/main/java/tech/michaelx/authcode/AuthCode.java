@@ -10,6 +10,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -99,7 +100,7 @@ public class AuthCode {
         if (checkPermission()) {
             startReadSmsService();
         } else {
-            Toast.makeText(mContext, "Please allow app to read your sms for auto input auth code.", Toast.LENGTH_SHORT).show();
+            Log.e("AutoInputAuthCode", "Please allow app to read your sms for auto input auth code.");
         }
     }
 
