@@ -1,1 +1,1 @@
-include ':sample', ':authcode'
+include ':sample', ':library'
