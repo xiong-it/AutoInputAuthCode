@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import tech.michaelx.authcode.AuthCode;
@@ -28,13 +27,21 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.get_code_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CodeConfig config = new CodeConfig.Builder().codeLength(4).smsFromStart(133).build();
+                CodeConfig config = new CodeConfig.Builder()
+                        .codeLength(4)
+                        .smsFromStart(133)
+                        .smsBodyStartWith("百度科技")
+                        .smsBodyContains("验证码")
+                        .build();
                 AuthCode.getInstance().config(config).into((EditText) findViewById(R.id.code_et));
             }
         });
 
     }
 
+    /**
+     * 简单处理了短信权限
+     */
     private void handlePermission() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_SMS)
                 != PackageManager.PERMISSION_GRANTED) {

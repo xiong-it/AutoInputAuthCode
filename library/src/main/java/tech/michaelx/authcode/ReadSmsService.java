@@ -56,7 +56,7 @@ public class ReadSmsService extends Service {
         @Override
         public void onChange(boolean selfChange) {
             super.onChange(selfChange);
-            Cursor cursor = getContentResolver().query(Uri.parse(SMS_INBOX_URI), PROJECTION,
+                    Cursor cursor = getContentResolver().query(Uri.parse(SMS_INBOX_URI), PROJECTION,
                     Telephony.Sms.READ + "=?", new String[]{"0"}, Telephony.Sms.Inbox.DEFAULT_SORT_ORDER);
             getSmsCodeFromObserver(cursor);
         }
@@ -192,12 +192,12 @@ public class ReadSmsService extends Service {
      * @return
      */
     private boolean checkSmsBody(String smsBody) {
-        if (!TextUtils.isEmpty(mCodeConfig.getSmsStart()) && !TextUtils.isEmpty(mCodeConfig.getSmsContains())) {
-            return smsBody.startsWith(mCodeConfig.getSmsStart()) && smsBody.contains(mCodeConfig.getSmsContains());
-        } else if (!TextUtils.isEmpty(mCodeConfig.getSmsStart())) {
-            return smsBody.startsWith(mCodeConfig.getSmsStart());
-        } else if (!TextUtils.isEmpty(mCodeConfig.getSmsContains())) {
-            return smsBody.contains(mCodeConfig.getSmsContains());
+        if (!TextUtils.isEmpty(mCodeConfig.getSmsBodyStart()) && !TextUtils.isEmpty(mCodeConfig.getSmsBodyContains())) {
+            return smsBody.startsWith(mCodeConfig.getSmsBodyStart()) && smsBody.contains(mCodeConfig.getSmsBodyContains());
+        } else if (!TextUtils.isEmpty(mCodeConfig.getSmsBodyStart())) {
+            return smsBody.startsWith(mCodeConfig.getSmsBodyStart());
+        } else if (!TextUtils.isEmpty(mCodeConfig.getSmsBodyContains())) {
+            return smsBody.contains(mCodeConfig.getSmsBodyContains());
         } else {
             return true;
         }

@@ -18,8 +18,8 @@ import android.os.Parcelable;
 public class CodeConfig implements Parcelable {
 
     private int mCodeLen = 4;
-    private String mSmsStart;
-    private String mSmsContains;
+    private String mSmsBodyStart;
+    private String mSmsBodyContains;
     private int mSmsFrom;
     private int mSmsFromStart = 1069;
 
@@ -31,20 +31,20 @@ public class CodeConfig implements Parcelable {
         mCodeLen = codeLen;
     }
 
-    public String getSmsStart() {
-        return mSmsStart;
+    public String getSmsBodyStart() {
+        return mSmsBodyStart;
     }
 
-    private void setSmsStart(String smsStart) {
-        mSmsStart = smsStart;
+    private void setSmsBodyStart(String smsStart) {
+        mSmsBodyStart = smsStart;
     }
 
-    public String getSmsContains() {
-        return mSmsContains;
+    public String getSmsBodyContains() {
+        return mSmsBodyContains;
     }
 
-    private void setSmsContains(String smsContains) {
-        mSmsContains = smsContains;
+    private void setSmsBodyContains(String smsContains) {
+        mSmsBodyContains = smsContains;
     }
 
     public int getSmsFrom() {
@@ -67,8 +67,8 @@ public class CodeConfig implements Parcelable {
         private int mSmsFrom;
         private int mSmsFromStart;
         private int mCodeLen;
-        private String mSmsStart;
-        private String mSmsContains;
+        private String mSmsBodyStart;
+        private String mSmsBodyContains;
 
         public Builder smsFrom(int phoneNumber) {
             mSmsFrom = phoneNumber;
@@ -85,13 +85,13 @@ public class CodeConfig implements Parcelable {
             return this;
         }
 
-        public Builder smsStartWith(String start) {
-            mSmsStart = start;
+        public Builder smsBodyStartWith(String startWith) {
+            mSmsBodyStart = startWith;
             return this;
         }
 
-        public Builder smsContains(String contains) {
-            mSmsContains = contains;
+        public Builder smsBodyContains(String contains) {
+            mSmsBodyContains = contains;
             return this;
         }
 
@@ -100,8 +100,8 @@ public class CodeConfig implements Parcelable {
             codeConfig.setSmsFrom(mSmsFrom);
             codeConfig.setSmsFromStart(mSmsFromStart);
             codeConfig.setCodeLen(mCodeLen);
-            codeConfig.setSmsStart(mSmsStart);
-            codeConfig.setSmsContains(mSmsContains);
+            codeConfig.setSmsBodyStart(mSmsBodyStart);
+            codeConfig.setSmsBodyContains(mSmsBodyContains);
             return codeConfig;
         }
     }
@@ -114,8 +114,8 @@ public class CodeConfig implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(this.mCodeLen);
-        dest.writeString(this.mSmsStart);
-        dest.writeString(this.mSmsContains);
+        dest.writeString(this.mSmsBodyStart);
+        dest.writeString(this.mSmsBodyContains);
         dest.writeInt(this.mSmsFrom);
         dest.writeInt(this.mSmsFromStart);
     }
@@ -126,8 +126,8 @@ public class CodeConfig implements Parcelable {
     protected CodeConfig(Parcel in) {
         int tmpMType = in.readInt();
         this.mCodeLen = in.readInt();
-        this.mSmsStart = in.readString();
-        this.mSmsContains = in.readString();
+        this.mSmsBodyStart = in.readString();
+        this.mSmsBodyContains = in.readString();
         this.mSmsFrom = in.readInt();
         this.mSmsFromStart = in.readInt();
     }
