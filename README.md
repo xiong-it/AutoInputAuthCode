@@ -1,15 +1,25 @@
-# AutoInputAuthCode 自动填写验证码
+# AutoInputAuthCode
+[![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Download](https://api.bintray.com/packages/xiong-it/maven/AutoInputAuthCode/images/download.svg) ](https://bintray.com/xiong-it/maven/AutoInputAuthCode/_latestVersion)
+Android开发中自动填写验证码功能库。
+
+# Gradle Compile
 打开你的app module中的build.gradle,添加依赖：
+```groovy
+compile 'tech.michaelx.authcode:authcode:1.0.0' // 只有这行是被添加的依赖
 ```
-dependencies {
-   ...
-   compile 'tech.michaelx.authcode:library:1.0.1' // 只有这行是被添加的依赖
-   ...
-}
-```
-这是一个帮助Android开发者快速实现自动填写验证码的类库，只需要如下如下一行代码：
+
+# Sample Code
+示例代码如下：
 ```java
-AuthCode.getInstance().with(Context).config(CodeConfig).into(EditText);
+CodeConfig config = new CodeConfig.Builder()
+                        .codeLength(4) // 设置验证码长度
+                        .smsFromStart(133) // 设置验证码发送号码前几位数字
+                        //.smsFrom(1690123456789) // 如果验证码发送号码固定，则可以设置验证码发送完整号码
+                        .smsBodyStartWith("百度科技") // 设置验证码短信开头文字
+                        .smsBodyContains("验证码") // 设置验证码短信内容包含文字
+                        .build();
+AuthCode.getInstance().with(context).config(config).into(EditText);
 ```
 1. 通过单例获取一个AuthCode对象;
 2. 提供一个上下文对象给AuthCode，放心，我会妥善处理你的上下文;
@@ -19,7 +29,11 @@ AuthCode.getInstance().with(Context).config(CodeConfig).into(EditText);
 搞定，收工！
 
 # 效果图
-// TODO
+这里模拟演示了一个自动填写验证码的过程
+1. 点击获取验证码(使用另一个手机发送一个仿真验证码短信到该手机)
+2. 接收到验证码
+3. AutoInputAuthCode替你自动填写验证码
+![自动填写验证码演示](http://oler3nq5z.bkt.clouddn.com/authcode.gif)
 
 
 # 注意事项

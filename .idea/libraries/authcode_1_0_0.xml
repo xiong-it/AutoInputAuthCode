@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="authcode-1.0.0">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/429c8d2ec06d89ad1a2f0f903b572df5b05f9fab/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/429c8d2ec06d89ad1a2f0f903b572df5b05f9fab/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/tech.michaelx.authcode/authcode/1.0.0/ee96336f4ff1bee77b5dd076f3395051fdf1d1b7/authcode-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

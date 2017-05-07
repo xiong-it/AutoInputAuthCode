@@ -94,7 +94,7 @@ public class AuthCode {
 
     public void into(TextView codeView) {
         if (mCodeConfig == null) {
-            throw new NullPointerException("mCodeConfig is null.Please call cofig(CodeConfig) before this.");
+            throw new NullPointerException("mCodeConfig is null.Please call config(CodeConfig) before this.");
         }
         mHandler = new AuthCodeHandler(codeView);
         if (checkPermission()) {
