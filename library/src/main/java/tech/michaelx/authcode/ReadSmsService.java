@@ -92,11 +92,11 @@ public class ReadSmsService extends Service {
         if (intent != null) {
             Bundle bundle = intent.getExtras();
             if (bundle == null) {
-                Log.e(TAG, "bundle = null");
+                Log.e("AutoInputAuthCode", "bundle = null");
             } else {
                 register();
 
-                mMessenger = (Messenger) bundle.get(EXTRAS_MESSAGER);
+                mMessenger =  bundle.getParcelable(EXTRAS_MESSAGER);
                 mCodeConfig = bundle.getParcelable(EXTRAS_COFIG);
             }
         }

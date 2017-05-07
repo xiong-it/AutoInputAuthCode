@@ -115,7 +115,7 @@ public class AuthCode {
     private void startReadSmsService() {
         mAuthcodeIntent = new Intent(mContext, ReadSmsService.class);
         mAuthcodeIntent.putExtra(ReadSmsService.EXTRAS_MESSAGER, new Messenger(mHandler));
-        mAuthcodeIntent.putExtra(ReadSmsService.EXTRAS_MESSAGER, mCodeConfig);
+        mAuthcodeIntent.putExtra(ReadSmsService.EXTRAS_COFIG, mCodeConfig);
         mContext.startService(mAuthcodeIntent);
     }
 }

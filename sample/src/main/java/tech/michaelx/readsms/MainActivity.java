@@ -28,12 +28,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 CodeConfig config = new CodeConfig.Builder()
-                        .codeLength(4)
-                        .smsFromStart(133)
-                        .smsBodyStartWith("百度科技")
-                        .smsBodyContains("验证码")
+                        .codeLength(4) // 设置验证码长度
+                        .smsFromStart(133) // 设置验证码发送号码前几位数字
+                        //.smsFrom(1690123456789) // 如果验证码发送号码固定，则可以设置验证码发送完整号码
+                        .smsBodyStartWith("百度科技") // 设置验证码短信开头文字
+                        .smsBodyContains("验证码") // 设置验证码短信内容包含文字
                         .build();
-                AuthCode.getInstance().config(config).into((EditText) findViewById(R.id.code_et));
+                AuthCode.getInstance().with(MainActivity.this).config(config).into((EditText) findViewById(R.id.code_et));
             }
         });
 
