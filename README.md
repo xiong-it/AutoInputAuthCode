@@ -1,15 +1,15 @@
 # AutoInputAuthCode
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Download](https://api.bintray.com/packages/xiong-it/maven/AutoInputAuthCode/images/download.svg) ](https://bintray.com/xiong-it/maven/AutoInputAuthCode/_latestVersion)
+[![Download](https://api.bintray.com/packages/xiong-it/maven/AutoInputAuthCode/images/download.svg) ](https://bintray.com/xiong-it/maven/AutoInputAuthCode/_latestVersion)  
 Android开发中自动填写验证码功能库。
 
-# Gradle Compile
+# Compile
 打开你的app module中的build.gradle,添加依赖：
 ```groovy
-compile 'tech.michaelx.authcode:authcode:1.0.0' // 只有这行是被添加的依赖
+compile 'tech.michaelx.authcode:authcode:1.0.0'
 ```
 
-# Sample Code
+# Sample
 示例代码如下：
 ```java
 CodeConfig config = new CodeConfig.Builder()
@@ -32,7 +32,7 @@ AuthCode.getInstance().with(context).config(config).into(EditText);
 这里模拟演示了一个自动填写验证码的过程
 1. 点击获取验证码(使用另一个手机发送一个仿真验证码短信到该手机)
 2. 接收到验证码
-3. AutoInputAuthCode替你自动填写验证码
+3. AutoInputAuthCode替你自动填写验证码  
 ![自动填写验证码演示](http://oler3nq5z.bkt.clouddn.com/authcode.gif)
 
 
@@ -43,4 +43,5 @@ AuthCode.getInstance().with(context).config(config).into(EditText);
 <uses-permission android:name="android.permission.READ_SMS"/>
 ```
 
-由于读取短信在API 23（Android 6.0）上权限级别是**dangerous**。所以还需要动态申请权限，但是申请权限需要依赖于Activity或者Fragment中的onRequestPermissionsResult()回调，所以需要开发者自己实现。可参考中sample的代码。
+由于读取短信在API 23（Android 6.0）上权限级别是**dangerous**。所以还需要动态申请权限，但是申请权限需要依赖于Activity或者Fragment中的onRequestPermissionsResult()回调，所以需要开发者自己实现。  
+动态申请权限可参考中sample的代码。
