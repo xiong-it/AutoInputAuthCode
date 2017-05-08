@@ -33,7 +33,7 @@ AuthCode.getInstance().with(context).config(config).into(EditText);
 1. 点击获取验证码(使用另一个手机发送一个仿真验证码短信到该手机)
 2. 接收到验证码
 3. AutoInputAuthCode替你自动填写验证码  
-![自动填写验证码演示](http://oler3nq5z.bkt.clouddn.com/authcode.gif)
+![自动填写验证码演示](http://oler3nq5z.bkt.clouddn.com/authcode2.gif)
 
 
 # 注意事项
