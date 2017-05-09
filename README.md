@@ -2,6 +2,9 @@
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [ ![Download](https://api.bintray.com/packages/xiong-it/AndroidRepo/AutoInputAuthCode/images/download.svg) ](https://bintray.com/xiong-it/AndroidRepo/AutoInputAuthCode/_latestVersion)
 Android开发中自动填写验证码功能库。
+相关博客：
+[AutoInpuAuthCode使用介绍]（http://blog.csdn.net/xiong_it/article/details/71451922)
+[Android开发:实现APP自动填写注册验证码功能](http://blog.csdn.net/xiong_it/article/details/50997084)
 
 # Compile
 打开你的app module中的build.gradle,添加依赖：
