@@ -99,8 +99,8 @@ bintray {
     key = properties.getProperty("bintray.apikey")
     configurations = ['archives']
     pkg {
-        repo = "maven"  //发布到Bintray的那个仓库里，我们这里上传到maven库
-        name = "AutoInputAuthCode"  //发布到Bintray上的项目名字
+        repo = "AndroidRepo"  // 上传到我们自建的AndroidRepo仓库
+        name = "AutoInputAuthCode"  // 发布到Bintray上的项目名字
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]

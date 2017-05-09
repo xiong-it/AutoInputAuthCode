@@ -12,7 +12,6 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;
