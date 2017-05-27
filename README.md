@@ -42,7 +42,7 @@ AuthCode.getInstance().with(context).config(config).into(EditText);
 # 注意事项
 自动填写验证码需要读取短信权限，请在清单中添加权限：
 ```xml
-<uses-permission android:name="android.permission.READ_SMS"/>
+<uses-permission android:name="android.permission.RECEIVE_SMS"/>
 <uses-permission android:name="android.permission.READ_SMS"/>
 ```
 
