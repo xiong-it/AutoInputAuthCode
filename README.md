@@ -56,7 +56,7 @@ protected void onDestroy() {
 由于读取短信在API 23（Android 6.0）上权限级别是**dangerous**。所以还需要动态申请权限，但是申请权限需要依赖于Activity或者Fragment中的onRequestPermissionsResult()回调，所以需要开发者自己实现。  
 动态申请权限可参考中sample的代码。
 
-# changlog
+# changelog
 v1.0.1  
 添加一个共有api防止未读取到验证码导致内存泄露  
 完善demo  
