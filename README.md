@@ -57,10 +57,10 @@ protected void onDestroy() {
 动态申请权限可参考中sample的代码。
 
 # changlog
-v1.0.1
-添加一个共有api防止未读取到验证码导致内存泄露
-完善demo
+v1.0.1  
+添加一个共有api防止未读取到验证码导致内存泄露  
+完善demo  
 
-v1.0.0
-实现短信验证码读取功能
-实现演示demo
+v1.0.0  
+实现短信验证码读取功能  
+实现演示demo  
