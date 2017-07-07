@@ -55,14 +55,19 @@ public class AuthCode {
             switch (msg.what) {
                 case ReadSmsService.OBSERVER_SMS_CODE_MSG:
                     mAuthCode.setText((String) msg.obj);
-                    sInstance = null;
                     break;
                 case ReadSmsService.RECEIVER_SMS_CODE_MSG:
                     mAuthCode.setText((String) msg.obj);
-                    sInstance = null;
                     break;
                 default:
                     break;
+            }
+            recycle();
+        }
+
+        private void recycle() {
+            if (sInstance != null) {
+                sInstance.onDestroy();
             }
         }
     }
@@ -116,5 +121,15 @@ public class AuthCode {
         mAuthcodeIntent.putExtra(ReadSmsService.EXTRAS_MESSAGER, new Messenger(mHandler));
         mAuthcodeIntent.putExtra(ReadSmsService.EXTRAS_COFIG, mCodeConfig);
         mContext.startService(mAuthcodeIntent);
+    }
+
+    /**
+     * 销毁当前单例，防止内存泄露
+     */
+    public void onDestroy() {
+        if (sInstance != null) {
+            sInstance = null;
+            mContext = null;
+        }
     }
 }

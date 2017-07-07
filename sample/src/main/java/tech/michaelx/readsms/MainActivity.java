@@ -56,9 +56,15 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == REQUEST_PERMISSION_CODE) {
             if (grantResults.length != 0) {
                 if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(this, "您阻止了app读取您的短信，你可以自己手动输入验证码", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "您阻止了app读取您的短信，您可以自己手动输入验证码", Toast.LENGTH_SHORT).show();
                 }
             }
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        AuthCode.getInstance().onDestroy();
     }
 }
