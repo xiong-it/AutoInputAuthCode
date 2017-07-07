@@ -9,7 +9,7 @@ Android开发中自动填写验证码功能库。
 # Compile
 打开你的app module中的build.gradle,添加依赖：
 ```groovy
-compile 'tech.michaelx.authcode:authcode:1.0.0'
+compile 'tech.michaelx.authcode:authcode:1.0.1'
 ```
 
 # Sample
@@ -23,6 +23,13 @@ CodeConfig config = new CodeConfig.Builder()
                         .smsBodyContains("验证码") // 设置验证码短信内容包含文字
                         .build();
 AuthCode.getInstance().with(context).config(config).into(EditText);
+
+@Override
+protected void onDestroy() {
+    super.onDestroy();
+    // 防止未读取到验证码导致内存泄露，手动回收内存
+    AuthCode.getInstance().onDestroy();
+}
 ```
 1. 通过单例获取一个AuthCode对象;
 2. 提供一个上下文对象给AuthCode，放心，我会妥善处理你的上下文;
@@ -48,3 +55,12 @@ AuthCode.getInstance().with(context).config(config).into(EditText);
 
 由于读取短信在API 23（Android 6.0）上权限级别是**dangerous**。所以还需要动态申请权限，但是申请权限需要依赖于Activity或者Fragment中的onRequestPermissionsResult()回调，所以需要开发者自己实现。  
 动态申请权限可参考中sample的代码。
+
+# changlog
+v1.0.1
+添加一个共有api防止未读取到验证码导致内存泄露
+完善demo
+
+v1.0.0
+实现短信验证码读取功能
+实现演示demo
